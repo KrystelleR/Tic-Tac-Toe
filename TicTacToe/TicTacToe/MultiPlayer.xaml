@@ -1,0 +1,99 @@
+﻿<Window x:Class="TicTacToe.MultiPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe"
+        mc:Ignorable="d"
+ Title="Multiplayer" Height="450" Width="422" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="buttonStyle" TargetType="Button">
+
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Background" Value="MediumAquamarine" />
+            <Setter Property="Foreground" Value="MediumBlue" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="MyContentPresenter" 
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="1"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="LightGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel/>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button x:Name="btn1" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button x:Name="btn4" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="5">
+            <Button x:Name="btn7" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <Button x:Name="btn2" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="3">
+            <Button x:Name="btn5" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="5">
+            <Button x:Name="btn8" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="1">
+            <Button x:Name="btn3" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="3">
+            <Button x:Name="btn6" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="5">
+            <Button x:Name="btn9" Content="" Height="119" Click="btn_Click" FontSize="72" Background="LightGray" Style="{StaticResource buttonStyle}"/>
+        </StackPanel>
+        <Label x:Name="pxlbl" Grid.Column="1" Content="Player X Wins: 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue" FontWeight="Bold"/>
+        <Label x:Name="polbl" Grid.Column="5" Content="Player O Wins: 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Orange" FontWeight="Bold"/>
+        <Button x:Name="resetbtn" Grid.Column="3" Content="Reset" HorizontalAlignment="Center" VerticalAlignment="Center" Click="resetbtn_Click" Width="65" Background="AliceBlue"/>
+        <Button x:Name="MainMenu" Grid.Column="5" Content="Return to Main Menu" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Background="AliceBlue" Click="MainMenu_Click"/>
+
+    </Grid>
+</Window>
